@@ -28,18 +28,8 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
         return employmeeList;
     }
 
-    public boolean isCorrupted(EmployeeDTO employee) {
-        if (NullChecker.isNull(employee) || DuplicateChecker.isDuplicate(employee))
-            return true;
-        else
-            return false;
-    }
-
     @Override
     public void addEmployee(EmployeeDTO employee) {
-        if (isCorrupted(employee)) {
-            corruptedList.put(employee.getEmpId(), employee);
-        }
         employmeeList.put(employee.getEmpId(), employee);
     }
 
@@ -64,6 +54,11 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     @Override
     public EmployeeDTO getEmployee(int empId) {
         return employmeeList.get(empId);
+    }
+
+    @Override
+    public boolean isDuplicate(EmployeeDTO employeeDTO) {
+        return false;
     }
 
     public EmployeeDTO getCorruptedEmployee(int emId) {

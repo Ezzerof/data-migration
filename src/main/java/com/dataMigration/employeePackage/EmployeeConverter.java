@@ -17,7 +17,7 @@ public interface EmployeeConverter{
     static EmployeeDTO createEmployeeFromData(String employeeData) {
         EmployeeDTO employee = null;
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String[] dataList = employeeData.split(",");
             int empNo = IntegerValidator.isIntCorrupted(dataList[0]);
             String prefixName = (PrefixValidator.isPrefixCorrupted(dataList[1])) ? null : dataList[1];

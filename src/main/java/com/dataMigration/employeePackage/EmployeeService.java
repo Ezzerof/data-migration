@@ -10,19 +10,46 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public static void addEmployee(String employees) {
+    public void addEmployee(String employees) {
         EmployeeDTO employeeDTO = EmployeeConverter.createEmployeeFromData(employees);
         employeeRepository.addEmployee(employeeDTO);
     }
 
-    public static Map<Integer, EmployeeDTO> getAllEmployees() {
+    public boolean isDuplicate(EmployeeDTO employeeDTO) {
+        for (Integer key : EmploymentRepositoryImplementation.getEmployeeList().keySet()) {
+            EmployeeDTO temployee = EmploymentRepositoryImplementation.getEmployeeList().get(key);
+
+            if (employeeDTO.getFirstName().equals(temployee.getFirstName())
+                    && employeeDTO.getLastName().equals(temployee.getLastName())
+                    && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress())
+            ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isCorrupted(EmployeeDTO employee) {
+
+        if (employee.getEmpId() == 0 || employee.getPrefixName() == null
+                || employee.getFirstName() == null || employee.getMiddleName() == null
+                || employee.getLastName() == null || employee.getGender() == null
+                || employee.getEmailAddress() == null || employee.getSalary() == 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public Map<Integer, EmployeeDTO> getAllEmployees() {
         return employeeRepository.getAllEmployees();
     }
 
-    public static EmployeeDTO getEmployee(int empId) {
+    public EmployeeDTO getEmployee(int empId) {
         return employeeRepository.getEmployee(empId);
     }
-    public static int getEmployeeListSize() {
+
+    public int getEmployeeListSize() {
         return employeeRepository.getSizeOfEmployeeList();
     }
 

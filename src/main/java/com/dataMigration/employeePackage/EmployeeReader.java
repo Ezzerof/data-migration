@@ -1,4 +1,4 @@
-package com.dataMigration;
+package com.dataMigration.employeePackage;
 
 
 import java.io.IOException;
@@ -18,8 +18,6 @@ public class EmployeeReader {
         List<String> result = Files.lines(Paths.get("src/main/resources/EmployeeRecords.csv"))
                 .skip(1) // skip the header line
                 .collect(Collectors.toList()); // collect all lines into a list
-
-        Collections.shuffle(result); // randomize the list
 
         return result.stream()
                 .limit(numEmployees) // limit to the first numEmployees values
