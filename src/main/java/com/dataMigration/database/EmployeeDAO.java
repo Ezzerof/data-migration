@@ -1,7 +1,10 @@
 package com.dataMigration.database;
 
+import com.dataMigration.App;
 import com.dataMigration.employeePackage.EmployeeDTO;
 import com.dataMigration.employeePackage.Gender;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +13,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class EmployeeDAO implements DAO<EmployeeDTO> {
-
+    private static final Logger LOGGER = LogManager.getLogger(App.class);
     private static final String insertNewEmployee = "INSERT INTO employees (emp_id, name_prefix, first_name, middle_name, last_name, gender, email_address, birth_date, start_date, salary) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private static final String selectAllEmployees = "SELECT * FROM employees";
     private static final String deleteEmployee = "DELETE FROM employees WHERE id=?";
@@ -33,7 +36,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
                 System.out.println("Delete is not successful");
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
@@ -59,9 +62,8 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
             else
                 System.out.println("Update is not successful");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
-
     }
 
     @Override
@@ -88,7 +90,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
                 System.out.println("Insert is not successful");
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return 0;
     }
@@ -121,7 +123,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
                 System.out.println("No records in the table");
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return employeeDTO;
     }
@@ -156,7 +158,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
                 System.out.println("No records in the table");
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return listOfEmployees;
     }
