@@ -21,6 +21,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
     public void deleteById(int id) {
 
         try {
+
             PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(deleteEmployee);
             preparedStatement.setInt(1, id);
 
