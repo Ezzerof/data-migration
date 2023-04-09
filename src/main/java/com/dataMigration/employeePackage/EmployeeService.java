@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class EmployeeService {
 
-    private static EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -12,37 +12,28 @@ public class EmployeeService {
 
     public void addEmployee(String employees) {
         EmployeeDTO employeeDTO = EmployeeConverter.createEmployeeFromData(employees);
+        if (isDuplicate(employeeDTO) || ValidationsUtil.isCorrupted(employeeDTO)) {
+            addCorruptEmployee(employeeDTO);
+        }
         employeeRepository.addEmployee(employeeDTO);
     }
 
-    public boolean isDuplicate(EmployeeDTO employeeDTO) {
-        for (Integer key : EmploymentRepositoryImplementation.getEmployeeList().keySet()) {
-            EmployeeDTO temployee = EmploymentRepositoryImplementation.getEmployeeList().get(key);
-
-            if (employeeDTO.getFirstName().equals(temployee.getFirstName())
-                    && employeeDTO.getLastName().equals(temployee.getLastName())
-                    && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress())
-            ){
-                return true;
-            }
-        }
-        return false;
+    public void addCorruptEmployee(EmployeeDTO employeeDTO) {
+        employeeRepository.addCorruptedEmployee(employeeDTO);
     }
 
-    public boolean isCorrupted(EmployeeDTO employee) {
-
-        if (employee.getEmpId() == 0 || employee.getPrefixName() == null
-                || employee.getFirstName() == null || employee.getMiddleName() == null
-                || employee.getLastName() == null || employee.getGender() == null
-                || employee.getEmailAddress() == null || employee.getSalary() == 0) {
-            return true;
+    public boolean isDuplicate(EmployeeDTO employeeDTO) {
+        if (employeeRepository.searchByFirstLastNameAndEmailAddress(employeeDTO) == null) {
+            return false;
         }
-
-        return false;
+        return true;
     }
 
     public Map<Integer, EmployeeDTO> getAllEmployees() {
         return employeeRepository.getAllEmployees();
+    }
+    public Map<Integer, EmployeeDTO> getAllCorruptedEmployees() {
+        return employeeRepository.getAllCorruptedEmployees();
     }
 
     public EmployeeDTO getEmployee(int empId) {

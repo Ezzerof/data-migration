@@ -1,38 +1,51 @@
 package com.dataMigration.employeePackage;
 
-import com.dataMigration.validators.NullChecker;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class EmploymentRepositoryImplementation implements EmployeeRepository {
 
     private static Map<Integer, EmployeeDTO> corruptedList = null;
-    private static Map<Integer, EmployeeDTO> employmeeList = null;
+    private static Map<Integer, EmployeeDTO> employeesList = null;
 
-    private EmploymentRepositoryImplementation() {
-
+    public EmploymentRepositoryImplementation() {
+        corruptedList = new HashMap<>();
+        employeesList = new HashMap<>();
     }
 
     public static Map<Integer, EmployeeDTO> getCorruptedList() {
-        if (corruptedList == null) {
-            corruptedList = new HashMap<>();
-        }
         return corruptedList;
     }
 
     public static Map<Integer, EmployeeDTO> getEmployeeList() {
-        if (employmeeList == null) {
-            employmeeList = new HashMap<>();
+
+        return employeesList;
+    }
+
+    @Override
+    public EmployeeDTO searchByFirstLastNameAndEmailAddress(EmployeeDTO employeeDTO) {
+        for (Integer key : EmploymentRepositoryImplementation.getEmployeeList().keySet()) {
+            EmployeeDTO temployee = EmploymentRepositoryImplementation.getEmployeeList().get(key);
+
+            if (employeeDTO.getFirstName().equals(temployee.getFirstName())
+                    && employeeDTO.getLastName().equals(temployee.getLastName())
+                    && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress())
+            ){
+                return employeeDTO;
+            }
         }
-        return employmeeList;
+
+        return null;
     }
 
     @Override
     public void addEmployee(EmployeeDTO employee) {
-        employmeeList.put(employee.getEmpId(), employee);
+        employeesList.put(employee.getEmpId(), employee);
     }
-
+    @Override
+    public void addCorruptedEmployee(EmployeeDTO employee) {
+        corruptedList.put(employee.getEmpId(), employee);
+    }
     @Override
     public Map<Integer, EmployeeDTO> getAllEmployees() {
         return getEmployeeList();
@@ -44,23 +57,18 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
 
     @Override
     public void removeEmployee(EmployeeDTO employee) {
-        employmeeList.remove(employee.getEmpId());
+        employeesList.remove(employee.getEmpId());
     }
-
+    @Override
     public void removeCorruptedEmployee(EmployeeDTO employee) {
         corruptedList.remove(employee.getEmpId());
     }
 
     @Override
     public EmployeeDTO getEmployee(int empId) {
-        return employmeeList.get(empId);
+        return employeesList.get(empId);
     }
-
     @Override
-    public boolean isDuplicate(EmployeeDTO employeeDTO) {
-        return false;
-    }
-
     public EmployeeDTO getCorruptedEmployee(int emId) {
         return corruptedList.get(emId);
     }
@@ -69,7 +77,7 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     public int getSizeOfEmployeeList() {
         return getEmployeeList().size();
     }
-
+    @Override
     public int getSizeOfCorruptedList() {
         return getCorruptedList().size();
     }
