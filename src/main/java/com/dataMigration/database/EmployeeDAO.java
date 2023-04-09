@@ -34,8 +34,6 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     @Override
