@@ -13,6 +13,7 @@ target/
 *.ipr
 *.xml
 *.properties
+*.log
 
 ### Eclipse ###
 .apt_generated
