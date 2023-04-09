@@ -1,6 +1,7 @@
 package com.dataMigration.database;
 
 import java.util.List;
+import java.util.Map;
 
 public interface DAO<T> {
 
@@ -8,10 +9,10 @@ public interface DAO<T> {
 
     void updated(T update);
 
-    int insert(T newRow);
+    int insert(T newEmployee);
 
     T findById(int id);
 
-    List<T> findAll();
+    Map<Integer, T> findAll();
 
 }

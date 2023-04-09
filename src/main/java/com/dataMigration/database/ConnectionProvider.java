@@ -17,7 +17,7 @@ public class ConnectionProvider {
     private ConnectionProvider() {
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         if (connection == null) {
             try {
                 properties.load(new BufferedReader(new FileReader("src\\main\\resources\\login.properties")));
