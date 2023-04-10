@@ -13,19 +13,24 @@ The requirement was to use JUnit, JDBC and MySQL, it was challenging for me as I
 
 ## Requirements
 * Java(18)
+* JUnit 5
+* Log4J 2
+* Mockito
 * MySQL
 * GIT
 
 ## Dependencies
 * JUnit 5
-`<dependency>
+```
+<dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <version>5.9.2</version>
- </dependency>
-`
+</dependency>
+```
 * Log4j 2
-`<dependency>
+```
+<dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>2.20.0</version>
@@ -35,18 +40,20 @@ The requirement was to use JUnit, JDBC and MySQL, it was challenging for me as I
       <artifactId>log4j-api</artifactId>
       <version>2.20.0</version>
  </dependency>
-`
+````
 * Mockito
-`<dependency>
+```
+<dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>5.2.0</version>
  </dependency>
-`
+````
 * MySQL
-`<dependency>
+```
+<dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.32</version>
  </dependency>
-`
+```
