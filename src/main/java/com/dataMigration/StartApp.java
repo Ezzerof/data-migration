@@ -1,48 +1,69 @@
 package com.dataMigration;
 
-import com.dataMigration.employeePackage.EmployeeReader;
-import com.dataMigration.employeePackage.EmployeeRepository;
-import com.dataMigration.employeePackage.EmployeeService;
-import com.dataMigration.employeePackage.EmploymentRepositoryImplementation;
+import com.dataMigration.database.EmployeeDAO;
+import com.dataMigration.employeePackage.*;
+import com.dataMigration.userInterface.UserInterfacesStarter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class StartApp {
     private static final Logger LOGGER = LogManager.getLogger(App.class);
+
     public static void start() {
 
         Scanner scanner = new Scanner(System.in);
         List<String> listOfEmps;
         EmployeeRepository employeeRepository = new EmploymentRepositoryImplementation();
         EmployeeService employeeService = new EmployeeService(employeeRepository);
+        EmployeeDAO employeeDAO = new EmployeeDAO();
 
         while (true) {
 
             try {
                 System.out.println("Welcome to MigrationApp\n");
-                System.out.print("Please enter number of employee to migrate or -1 to quit: ");
-                int userInput = scanner.nextInt();
+                System.out.print("Please enter number of employee to migrate or Q to quit: ");
+                String userInput = scanner.next();
 
-                if (userInput == -1) {
+                int numberOfEmployees = ValidationsUtil.isIntCorrupted(userInput);
+
+                if (userInput.equalsIgnoreCase("q")) {
                     break;
-                }  else if (userInput == 0 || userInput < -1 || userInput > 10000) {
+                } else if (numberOfEmployees == 0 || numberOfEmployees > 10000) {
                     System.out.println("Invalid input\n");
                 } else {
 
-                    listOfEmps = EmployeeReader.getEmployees(userInput);
+                    listOfEmps = EmployeeReader.getEmployees(numberOfEmployees);
 
+                    // Adding Employees to Maps
                     for (String emp : listOfEmps) {
                         employeeService.addEmployee(emp);
                     }
 
                     System.out.println("Employees List\n" + employeeService.getAllEmployees().values());
+                    System.out.println();
                     System.out.println("============================================================");
                     System.out.println("Corrupted Employees List\n" + employeeService.getAllCorruptedEmployees().values());
                     System.out.println();
+
+                    employeeDAO.dropTableIfExists();
+                    employeeDAO.createTable();
+
+
+                    System.out.println("Inserting employees to the Database ...");
+                    // Adding employees to the MySQL
+                    for (EmployeeDTO employeeDTO : employeeService.getAllEmployees().values()) {
+                        employeeDAO.insert(employeeDTO);
+                    }
+                    System.out.println();
+
+                    UserInterfacesStarter.runInterface();
+
+
                 }
             } catch (IOException e) {
                 LOGGER.error(e);
