@@ -31,10 +31,11 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
             "birth_date DATETIME, " +
             "start_date DATETIME, " +
             "salary INT)";
+
     @Override
     public void deleteById(int id) {
 
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(deleteEmployee)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(deleteEmployee)) {
 
             preparedStatement.setInt(1, id);
 
@@ -53,7 +54,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
     @Override
     public void createTable() {
 
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(createTableIfNotExists)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(createTableIfNotExists)) {
             preparedStatement.executeUpdate();
             System.out.println("Table created successfully");
 
@@ -65,7 +66,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
 
     @Override
     public void dropTableIfExists() {
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(dropTableIfExists)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(dropTableIfExists)) {
             preparedStatement.executeUpdate();
             System.out.println("Table deleted successfully");
 
@@ -77,7 +78,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
     @Override
     public void updated(EmployeeDTO update) {
 
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(updateEmployee)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(updateEmployee)) {
 
             preparedStatement.setString(1, update.getPrefixName());
             preparedStatement.setString(2, update.getFirstName());
@@ -103,7 +104,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
     @Override
     public int insert(EmployeeDTO newEmployee) {
 
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(insertNewEmployee)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(insertNewEmployee)) {
 
             preparedStatement.setInt(1, newEmployee.getEmpId());
             preparedStatement.setString(2, newEmployee.getPrefixName());
@@ -134,7 +135,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
 
         EmployeeDTO employeeDTO = null;
 
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(selectAnEmployee)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(selectAnEmployee)) {
 
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -167,7 +168,7 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
 
         Map<Integer, EmployeeDTO> listOfEmployees = new HashMap<>();
 
-        try(PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(selectAllEmployees)) {
+        try (PreparedStatement preparedStatement = ConnectionProvider.getConnection().prepareStatement(selectAllEmployees)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 

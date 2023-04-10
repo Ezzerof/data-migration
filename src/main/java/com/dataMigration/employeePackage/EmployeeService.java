@@ -32,6 +32,7 @@ public class EmployeeService {
     public Map<Integer, EmployeeDTO> getAllEmployees() {
         return employeeRepository.getAllEmployees();
     }
+
     public Map<Integer, EmployeeDTO> getAllCorruptedEmployees() {
         return employeeRepository.getAllCorruptedEmployees();
     }

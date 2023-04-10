@@ -1,14 +1,11 @@
 package com.dataMigration.employeePackage;
 
-import com.dataMigration.employeePackage.EmployeeDTO;
-
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class ValidationsUtil {
 
     static boolean validateEmail(String email) {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -36,8 +33,7 @@ public class ValidationsUtil {
         if (employeeDTO.getEmpId() == 0 || employeeDTO.getPrefixName() == null
                 || employeeDTO.getFirstName() == null || employeeDTO.getMiddleName() == null
                 || employeeDTO.getLastName() == null || employeeDTO.getGender() == null
-                || employeeDTO.getEmailAddress() == null || employeeDTO.getSalary() == 0 )
-        {
+                || employeeDTO.getEmailAddress() == null || employeeDTO.getSalary() == 0) {
             return true;
         }
         return false;

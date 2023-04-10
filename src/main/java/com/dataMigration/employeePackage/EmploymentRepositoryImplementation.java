@@ -22,11 +22,10 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
                     || (employeeDTO.getFirstName().equals(temployee.getFirstName())
                     && employeeDTO.getLastName().equals(temployee.getLastName())
                     && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress()))
-            ){
+            ) {
                 return employeeDTO;
             }
         }
-
         return null;
     }
 
@@ -34,10 +33,12 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     public void addEmployee(EmployeeDTO employee) {
         employeesList.put(employee.getEmpId(), employee);
     }
+
     @Override
     public void addCorruptedEmployee(EmployeeDTO employee) {
         corruptedList.put(employee.getEmpId(), employee);
     }
+
     @Override
     public Map<Integer, EmployeeDTO> getAllEmployees() {
         return employeesList;
@@ -51,6 +52,7 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     public void removeEmployee(EmployeeDTO employee) {
         employeesList.remove(employee.getEmpId());
     }
+
     @Override
     public void removeCorruptedEmployee(EmployeeDTO employee) {
         corruptedList.remove(employee.getEmpId());
@@ -60,6 +62,7 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     public EmployeeDTO getEmployee(int empId) {
         return employeesList.get(empId);
     }
+
     @Override
     public EmployeeDTO getCorruptedEmployee(int emId) {
         return corruptedList.get(emId);
@@ -69,6 +72,7 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     public int getSizeOfEmployeeList() {
         return employeesList.size();
     }
+
     @Override
     public int getSizeOfCorruptedList() {
         return corruptedList.size();

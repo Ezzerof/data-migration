@@ -7,8 +7,9 @@ import org.apache.logging.log4j.Logger;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public interface EmployeeConverter{
+public interface EmployeeConverter {
     Logger LOGGER = LogManager.getLogger(App.class);
+
     /*
         Uses data from the CSV service to create an employee object and return it to caller
 
@@ -33,7 +34,7 @@ public interface EmployeeConverter{
             employee = new EmployeeDTO(empNo, prefixName, firstName, middleName, lastName, gender, emailAddress, birthDate, joinDate, salary);
 
 
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             LOGGER.error(e.getMessage(), e);
         }
 

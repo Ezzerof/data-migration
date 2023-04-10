@@ -13,9 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="690a3bac-90ff-4112-9292-97872e013fe5">
-      <console name="Connection" type="STANDARD" schema="employeemigration" session="Main"><![CDATA[USE employeemigration;
-
-select * from employees;]]></console>
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
