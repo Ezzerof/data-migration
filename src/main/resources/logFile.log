@@ -1,0 +1,94 @@
+[ERROR] 2023-04-09 21:04:31.648 [main] App - java.sql.SQLSyntaxErrorException: Unknown column 'birth_date' in 'field list'
+[ERROR] 2023-04-09 21:04:31.650 [main] App - java.sql.SQLSyntaxErrorException: Unknown column 'birth_date' in 'field list'
+[ERROR] 2023-04-09 21:07:33.145 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:07:33.147 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:07:33.148 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:07:33.149 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:07:33.150 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:10:20.737 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:10:20.739 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:10:20.740 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:11:17.140 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:11:17.142 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:11:17.143 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:11:17.144 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:13:53.634 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:13:53.636 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:13:53.638 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:13:53.638 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:20:03.968 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:20:03.971 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:20:03.972 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:20:03.973 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:20:03.974 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:21:31.970 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:21:31.972 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:21:31.973 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:21:31.975 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:21:31.976 [main] App - com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+[ERROR] 2023-04-09 21:29:26.056 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:29:26.060 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:29:30.632 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:29:30.634 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '647173' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:29:30.636 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:32:16.950 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:32:16.953 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '647173' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:32:16.954 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:32:16.954 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '847634' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:33:45.156 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '260736' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:33:45.159 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:33:45.161 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '647173' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:33:45.162 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 21:33:45.163 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '847634' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 22:49:26.032 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:49:26.034 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:49:41.808 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:51:40.043 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:51:40.046 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:51:40.047 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:51:40.048 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:51:40.049 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:52:29.669 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:52:29.672 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:52:29.673 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:52:29.674 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-09 22:53:56.310 [main] App - java.sql.SQLSyntaxErrorException: Unknown column 'id' in 'where clause'
+[ERROR] 2023-04-09 23:00:18.223 [main] App - java.sql.SQLSyntaxErrorException: Unknown column 'id' in 'where clause'
+[ERROR] 2023-04-09 23:02:08.518 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:02:08.521 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:02:08.521 [main] App - java.sql.SQLSyntaxErrorException: Unknown column 'id' in 'where clause'
+[ERROR] 2023-04-09 23:10:11.393 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:10:11.396 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:15:01.829 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:15:41.071 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:16:25.484 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-09 23:16:25.486 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:25:02.646 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:25:02.651 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:26:35.039 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:26:35.041 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:27:08.019 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:27:08.021 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '647173' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:27:08.022 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:27:08.023 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '847634' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:29:22.372 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '260736' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:29:22.375 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:29:22.376 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '647173' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:29:22.377 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:29:22.378 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '847634' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.680 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '260736' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.683 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '178566' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.684 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '811306' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.685 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '956633' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.686 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '744723' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.687 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '629539' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.688 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '784160' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.689 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '647173' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.690 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '198429' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:51:51.690 [main] App - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '847634' for key 'employees.PRIMARY'
+[ERROR] 2023-04-10 10:53:36.342 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-10 10:53:36.344 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-10 10:53:36.345 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-10 10:53:36.346 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-10 10:53:36.347 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist
+[ERROR] 2023-04-10 10:53:47.205 [main] App - java.sql.SQLSyntaxErrorException: Table 'employeemigration.employees' doesn't exist

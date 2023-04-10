@@ -12,6 +12,8 @@ public interface DAO<T> {
     int insert(T newEmployee);
 
     T findById(int id);
+    void createTable();
+    void dropTableIfExists();
 
     Map<Integer, T> findAll();
 

@@ -13,23 +13,15 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
         employeesList = new HashMap<>();
     }
 
-    public static Map<Integer, EmployeeDTO> getCorruptedList() {
-        return corruptedList;
-    }
-
-    public static Map<Integer, EmployeeDTO> getEmployeeList() {
-
-        return employeesList;
-    }
-
     @Override
     public EmployeeDTO searchByFirstLastNameAndEmailAddress(EmployeeDTO employeeDTO) {
-        for (Integer key : EmploymentRepositoryImplementation.getEmployeeList().keySet()) {
-            EmployeeDTO temployee = EmploymentRepositoryImplementation.getEmployeeList().get(key);
+        for (Integer key : EmploymentRepositoryImplementation.employeesList.keySet()) {
+            EmployeeDTO temployee = EmploymentRepositoryImplementation.employeesList.get(key);
 
-            if (employeeDTO.getFirstName().equals(temployee.getFirstName())
+            if (employeeDTO.getEmpId() == temployee.getEmpId()
+                    || (employeeDTO.getFirstName().equals(temployee.getFirstName())
                     && employeeDTO.getLastName().equals(temployee.getLastName())
-                    && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress())
+                    && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress()))
             ){
                 return employeeDTO;
             }
@@ -48,11 +40,11 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     }
     @Override
     public Map<Integer, EmployeeDTO> getAllEmployees() {
-        return getEmployeeList();
+        return employeesList;
     }
 
     public Map<Integer, EmployeeDTO> getAllCorruptedEmployees() {
-        return getCorruptedList();
+        return corruptedList;
     }
 
     @Override
@@ -75,11 +67,11 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
 
     @Override
     public int getSizeOfEmployeeList() {
-        return getEmployeeList().size();
+        return employeesList.size();
     }
     @Override
     public int getSizeOfCorruptedList() {
-        return getCorruptedList().size();
+        return corruptedList.size();
     }
 }
 

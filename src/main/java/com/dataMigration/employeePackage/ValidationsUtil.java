@@ -16,7 +16,7 @@ public class ValidationsUtil {
         return pattern.matcher(email).matches();
     }
 
-    static int isIntCorrupted(String text) {
+    public static int isIntCorrupted(String text) {
         String regex = ".*[a-zA-A!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";
         if (!text.matches(regex)) {
             return Integer.parseInt(text);
@@ -25,7 +25,7 @@ public class ValidationsUtil {
         return 0;
     }
 
-    static boolean isStringCorrupted(String input) {
+    public static boolean isStringCorrupted(String input) {
         if (input == null || input.equalsIgnoreCase("FALSE"))
             return true;
 
