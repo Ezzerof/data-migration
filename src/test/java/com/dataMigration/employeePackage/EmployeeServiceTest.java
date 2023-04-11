@@ -22,17 +22,19 @@ public class EmployeeServiceTest {
         EmployeeRepositorySpy employeeRepositorySpy = new EmployeeRepositorySpy();
         EmployeeService employeeService = new EmployeeService(employeeRepositorySpy);
 
-        String employee1 = "198429,Mrs.,Serafina,I,Bumgarner,F,serafina.bumgarner@exxonmobil.com,21/09/1982,01/02/2008,69294";
-        String employee2 = "198421,Mrs.,Serafina,I,Bumgarners,F,serafina.bumgarner@exxonmobil.com,21/09/1982,01/02/2008,69294";
-        String employee3 = "198422,Mrs.,Serafina,I,Bumgarnerg,F,serafina.bumgarner@exxonmobil.com,21/09/1982,01/02/2008,69294";
-        String employee4 = "198423,Mrs.,Serafina,I,Bumgarnerf,F,serafina.bumgarner@exxonmobil.com,21/09/1982,01/02/2008,69294";
+        EmployeeDTO employeeDTO = new EmployeeDTO(19525, "Mr.", "", "", "", Gender.MALE, "", LocalDate.now(), LocalDate.now(), 898596);
+        EmployeeDTO employeeDTO2 = new EmployeeDTO(19523, "Mr.", "", "", "", Gender.MALE, "", LocalDate.now(), LocalDate.now(), 898596);
+        EmployeeDTO employeeDTO3 = new EmployeeDTO(19524, "Mr.", "", "", "", Gender.MALE, "", LocalDate.now(), LocalDate.now(), 898596);
+        EmployeeDTO employeeDTO4 = new EmployeeDTO(19522, "Mr.", "", "", "", Gender.MALE, "", LocalDate.now(), LocalDate.now(), 898596);
 
-        employeeService.addEmployee(employee1);
-        employeeService.addEmployee(employee2);
-        employeeService.addEmployee(employee3);
-        employeeService.addEmployee(employee4);
 
-        Assertions.assertEquals(4, employeeService.getEmployeeListSize());
+        employeeRepositorySpy.addEmployee(employeeDTO);
+        employeeRepositorySpy.addEmployee(employeeDTO2);
+        employeeRepositorySpy.addEmployee(employeeDTO3);
+        employeeRepositorySpy.addEmployee(employeeDTO4);
+
+
+        Assertions.assertEquals(4, employeeRepositorySpy.getSizeOfEmployeeList());
     }
 
     @Test

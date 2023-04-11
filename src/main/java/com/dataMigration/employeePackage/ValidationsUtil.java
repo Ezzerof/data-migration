@@ -14,7 +14,7 @@ public class ValidationsUtil {
     }
 
     public static int isIntCorrupted(String text) {
-        String regex = ".*[a-zA-A!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";
+        String regex = ".*[a-zA-Z!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";
         if (!text.matches(regex)) {
             return Integer.parseInt(text);
         }

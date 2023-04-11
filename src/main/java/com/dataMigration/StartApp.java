@@ -45,7 +45,7 @@ public class StartApp {
                     System.out.println("Employees List\n" + employeeService.getAllEmployees().values());
                     System.out.println();
                     System.out.println("============================================================");
-                    System.out.println("Corrupted Employees List\n" + employeeService.getAllCorruptedEmployees().values());
+                    System.out.println("List of Corrupted Employees\n" + employeeService.getAllCorruptedEmployees().values());
                     System.out.println();
 
                     employeeDAO.dropTableIfExists();
