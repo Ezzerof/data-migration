@@ -17,7 +17,7 @@ public class EmployeeReaderTest {
      */
 
     @Test
-    @DisplayName("Test10ParsedEmployeesIntoAStringList")
+    @DisplayName("Test 10 Parsed Employees Into A String List")
     void test10ParsedEmployeesIntoAStringList() {
         List<String> employeesList;
         try {
@@ -30,8 +30,8 @@ public class EmployeeReaderTest {
     }
 
     @Test
-    @DisplayName("TestingInvalidInputNumberOfEmployees0ShouldGetAnException")
-    void testingInvalidInputNumberOfEmployees0ShouldGetAnException() {
+    @DisplayName("Testing Invalid Input Number Of Employees Should Get An Exception")
+    void testingInvalidInputNumberOfEmployeesShouldGetAnException() {
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> EmployeeReader.getEmployees(0));
         assertEquals("Argument Employees number must be between 1 and 10000", exception.getMessage());
