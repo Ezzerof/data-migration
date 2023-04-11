@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class ValidationsUtil {
 
-    static boolean validateEmail(String email) {
+    static boolean isEmailValid(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
@@ -27,16 +27,6 @@ public class ValidationsUtil {
             return true;
 
         return input.matches(".*[0-9!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*");
-    }
-
-    static boolean isInvalid(EmployeeDTO employeeDTO) {
-        if (employeeDTO.getEmpId() == 0 || employeeDTO.getPrefixName() == null
-                || employeeDTO.getFirstName() == null || employeeDTO.getMiddleName() == null
-                || employeeDTO.getLastName() == null || employeeDTO.getGender() == null
-                || employeeDTO.getEmailAddress() == null || employeeDTO.getSalary() == 0) {
-            return true;
-        }
-        return false;
     }
 
     static boolean isPrefixCorrupted(String prefix) {
