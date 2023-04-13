@@ -23,6 +23,9 @@ public class ValidationsUtil {
     }
 
     public static boolean isStringCorrupted(String input) {
+        if (input.equalsIgnoreCase("null"))
+            return true;
+
         if (input == null || input.equalsIgnoreCase("FALSE"))
             return true;
 
@@ -31,6 +34,8 @@ public class ValidationsUtil {
 
     static boolean isPrefixCorrupted(String prefix) {
         String regex = ".*[0-9!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,<>\\/?].*";
+        if (prefix.equalsIgnoreCase("null"))
+            return true;
         if (prefix == null || prefix.equalsIgnoreCase("false"))
             return true;
         return prefix.matches(regex);

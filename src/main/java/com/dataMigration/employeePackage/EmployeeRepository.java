@@ -1,5 +1,6 @@
 package com.dataMigration.employeePackage;
 
+import java.util.List;
 import java.util.Map;
 
 public interface EmployeeRepository {
@@ -25,5 +26,6 @@ public interface EmployeeRepository {
     int getSizeOfCorruptedList();
 
     EmployeeDTO searchByFirstLastNameAndEmailAddress(EmployeeDTO employeeDTO);
+    EmployeeDTO searchByFirstLastNameAndEmailAddressForCorrupted(EmployeeDTO employeeDTO);
 
 }

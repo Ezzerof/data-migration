@@ -29,6 +29,21 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
         return null;
     }
 
+    public EmployeeDTO searchByFirstLastNameAndEmailAddressForCorrupted(EmployeeDTO employeeDTO) {
+        for (Integer key : EmploymentRepositoryImplementation.corruptedList.keySet()) {
+            EmployeeDTO temployee = EmploymentRepositoryImplementation.corruptedList.get(key);
+
+            if (employeeDTO.getEmpId() == temployee.getEmpId()
+                    || (employeeDTO.getFirstName().equals(temployee.getFirstName())
+                    && employeeDTO.getLastName().equals(temployee.getLastName())
+                    && employeeDTO.getEmailAddress().equals(temployee.getEmailAddress()))
+            ) {
+                return employeeDTO;
+            }
+        }
+        return null;
+    }
+
     @Override
     public void addEmployee(EmployeeDTO employee) {
         employeesList.put(employee.getEmpId(), employee);

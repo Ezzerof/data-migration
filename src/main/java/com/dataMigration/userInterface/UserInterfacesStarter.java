@@ -40,6 +40,8 @@ public class UserInterfacesStarter {
                             break;
                         } else {
                             emp = employeeDAO.findById(parsedId);
+                            if (emp == null)
+                                break;
                             System.out.println("You have selected: " + emp.getEmpId() + " " + emp.getFirstName() + " " + emp.getLastName());
                         }
                         break;

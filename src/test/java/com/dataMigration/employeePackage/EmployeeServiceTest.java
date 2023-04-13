@@ -40,8 +40,8 @@ public class EmployeeServiceTest {
     void testingAddingEmployeesToTheMapSizeShouldBe5() {
 
         String employee1 = "19525,Mr.,Joe,M,Dan,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
-        String employee2 = "19523,Mr.,Joe,M,Andrew,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
-        String employee3 = "19524,Mr.,Joe,M,John,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
+        String employee2 = "19524,Mr.,Joe,M,Andrew,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
+        String employee3 = "19523,Mr.,Joe,M,John,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
         String employee4 = "19521,Mr.,Joe,M,Emil,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
 
         employeeService.addEmployee(employee1);
