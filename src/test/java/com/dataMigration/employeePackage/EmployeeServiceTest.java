@@ -53,6 +53,21 @@ public class EmployeeServiceTest {
     }
 
     @Test
+    @DisplayName("Testing if duplicates Id is changed")
+    void testingIfDuplicatesIdIsChanged() {
+
+        String employee1 = "19525,Mr.,Joe,M,Dan,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
+        String employee2 = "19525,Mr.,Joe,M,Andrew,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
+        String employee3 = "19525,Mr.,Joe,M,Andrew,F,dan@gmail.com,09/09/2020,18/11/2020,59999";
+
+        employeeService.addEmployee(employee1);
+        employeeService.addEmployee(employee2);
+        employeeService.addEmployee(employee3);
+
+        Assertions.assertNotEquals(employeeService.getCorruptedEmployee(19525), employeeService.getCorruptedEmployee(19526));
+    }
+
+    @Test
     @DisplayName("Testing Adding Corrupted Employees To The Corrupted Map Size Should Be 4")
     void testingAddingCorruptedEmployeesToTheCorruptedMapSizeShouldBe4() {
         employeeService.addCorruptEmployee(employee1);
