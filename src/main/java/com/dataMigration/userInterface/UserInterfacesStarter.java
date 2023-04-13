@@ -2,13 +2,15 @@ package com.dataMigration.userInterface;
 
 import com.dataMigration.database.EmployeeDAO;
 import com.dataMigration.employeePackage.EmployeeDTO;
+import com.dataMigration.employeePackage.EmployeeService;
+import com.dataMigration.employeePackage.EmploymentRepositoryImplementation;
 import com.dataMigration.employeePackage.ValidationsUtil;
 
 import java.util.Scanner;
 
 public class UserInterfacesStarter {
 
-    public static void runInterface() {
+    public static void runInterface(EmployeeService employeeService) {
 
         Scanner scanner = new Scanner(System.in);
         EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -20,13 +22,14 @@ public class UserInterfacesStarter {
             System.out.println("1. Get employee by ID\n" +
                     "2. Remove employee by ID\n" +
                     "3. Get all employee from database\n" +
-                    "4. Quit");
+                    "4. Get all corrupted/duplicates employees\n" +
+                    "5. Quit");
 
             System.out.print("\nEnter an option from above: ");
             String userChoice = scanner.next();
             int number = ValidationsUtil.isIntCorrupted(userChoice);
 
-            if (number == 4) {
+            if (number == 5) {
                 return;
             } else if (number == 0) {
                 System.out.println("Invalid input");
@@ -88,6 +91,14 @@ public class UserInterfacesStarter {
                         }
                         break;
                     case 4:
+                        if (employeeService.getAllCorruptedEmployees().isEmpty())
+                            System.out.println("The list is empty");
+                        else {
+                            System.out.println(employeeService.getAllCorruptedEmployees().values());
+                            System.out.println();
+                        }
+                        break;
+                    case 5:
                         isOn = false;
                         break;
                 }

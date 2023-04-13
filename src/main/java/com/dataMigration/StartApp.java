@@ -53,13 +53,14 @@ public class StartApp {
 
 
                     System.out.println("Inserting employees to the Database ...");
+
                     // Adding employees to the MySQL
                     for (EmployeeDTO employeeDTO : employeeService.getAllEmployees().values()) {
                         employeeDAO.insert(employeeDTO);
                     }
                     System.out.println();
 
-                    UserInterfacesStarter.runInterface();
+                    UserInterfacesStarter.runInterface(employeeService);
 
 
                 }
