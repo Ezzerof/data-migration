@@ -12,10 +12,16 @@ public class EmployeeService {
 
     public void addEmployee(String employees) {
         EmployeeDTO employeeDTO = EmployeeConverter.createEmployeeFromData(employees);
-        if (isDuplicate(employeeDTO) || ValidationsUtil.isCorrupted(employeeDTO)) {
+
+        if (ValidationsUtil.isCorrupted(employeeDTO) || isDuplicate(employeeDTO)) {
+
+            while (isDuplicateInCorruptedMap(employeeDTO)) {
+                employeeDTO.setEmpId(employeeDTO.getEmpId() + 1);
+            }
             addCorruptEmployee(employeeDTO);
+        } else {
+            employeeRepository.addEmployee(employeeDTO);
         }
-        employeeRepository.addEmployee(employeeDTO);
     }
 
     public void addCorruptEmployee(EmployeeDTO employeeDTO) {
@@ -23,10 +29,11 @@ public class EmployeeService {
     }
 
     public boolean isDuplicate(EmployeeDTO employeeDTO) {
-        if (employeeRepository.searchByFirstLastNameAndEmailAddress(employeeDTO) == null) {
-            return false;
-        }
-        return true;
+        return employeeRepository.searchByFirstLastNameAndEmailAddress(employeeDTO) != null;
+    }
+
+    public boolean isDuplicateInCorruptedMap(EmployeeDTO employeeDTO) {
+        return employeeRepository.searchByFirstLastNameAndEmailAddressForCorrupted(employeeDTO) != null;
     }
 
     public Map<Integer, EmployeeDTO> getAllEmployees() {

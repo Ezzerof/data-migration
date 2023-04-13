@@ -63,4 +63,9 @@ public class EmployeeRepositorySpy implements EmployeeRepository {
     public EmployeeDTO searchByFirstLastNameAndEmailAddress(EmployeeDTO employeeDTO) {
         return employeeDTO;
     }
+
+    @Override
+    public EmployeeDTO searchByFirstLastNameAndEmailAddressForCorrupted(EmployeeDTO employeeDTO) {
+        return employeeDTO;
+    }
 }

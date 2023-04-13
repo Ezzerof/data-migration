@@ -41,11 +41,6 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
 
             int rowsAffected = preparedStatement.executeUpdate();
 
-            if (rowsAffected > 0)
-                System.out.println("Delete is successful");
-            else
-                System.out.println("Delete is not successful");
-
         } catch (SQLException e) {
             LOGGER.error(e);
         }
@@ -92,10 +87,6 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
 
             int rowsAffected = preparedStatement.executeUpdate();
 
-            if (rowsAffected > 0)
-                System.out.println("Update is successful");
-            else
-                System.out.println("Update is not successful");
         } catch (SQLException e) {
             LOGGER.error(e);
         }
@@ -118,11 +109,6 @@ public class EmployeeDAO implements DAO<EmployeeDTO> {
             preparedStatement.setInt(10, newEmployee.getSalary());
 
             int rowsAffected = preparedStatement.executeUpdate();
-
-            if (rowsAffected > 0)
-                System.out.println("Insert is successful");
-            else
-                System.out.println("Insert is not successful");
 
         } catch (SQLException e) {
             LOGGER.error(e);
