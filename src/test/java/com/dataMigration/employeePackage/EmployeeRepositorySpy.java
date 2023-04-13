@@ -61,11 +61,19 @@ public class EmployeeRepositorySpy implements EmployeeRepository {
 
     @Override
     public EmployeeDTO searchByFirstLastNameAndEmailAddress(EmployeeDTO employeeDTO) {
-        return employeeDTO;
+        if (employeesList.isEmpty())
+            return null;
+        if (employeesList.containsKey(employeeDTO.getEmpId()))
+            return employeeDTO;
+        return null;
     }
 
     @Override
     public EmployeeDTO searchByFirstLastNameAndEmailAddressForCorrupted(EmployeeDTO employeeDTO) {
-        return employeeDTO;
+        if (corruptedEmployeesList.isEmpty())
+            return null;
+        if (corruptedEmployeesList.containsKey(employeeDTO.getEmpId()))
+            return employeeDTO;
+        return null;
     }
 }

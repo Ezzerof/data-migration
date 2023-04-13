@@ -48,6 +48,10 @@ public class EmployeeService {
         return employeeRepository.getEmployee(empId);
     }
 
+    public EmployeeDTO getCorruptedEmployee(int empId){
+        return employeeRepository.getCorruptedEmployee(empId);
+    }
+
     public int getEmployeeListSize() {
         return employeeRepository.getSizeOfEmployeeList();
     }
