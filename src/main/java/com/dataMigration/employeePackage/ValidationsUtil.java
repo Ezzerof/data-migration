@@ -15,9 +15,13 @@ public class ValidationsUtil {
 
     public static int isIntCorrupted(String text) {
         String regex = ".*[a-zA-Z!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";
+        int salary = 0;
         if (!text.matches(regex)) {
-            return Integer.parseInt(text);
-        }
+            salary = Integer.parseInt(text);
+        } else
+            return 0;
+        if (salary <= 0)
+            return 0;
 
         return 0;
     }

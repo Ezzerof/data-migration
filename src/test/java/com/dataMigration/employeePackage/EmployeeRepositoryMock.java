@@ -3,7 +3,7 @@ package com.dataMigration.employeePackage;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmployeeRepositorySpy implements EmployeeRepository {
+public class EmployeeRepositoryMock implements EmployeeRepository {
 
     Map<Integer, EmployeeDTO> employeesList = new HashMap<>();
     Map<Integer, EmployeeDTO> corruptedEmployeesList = new HashMap<>();

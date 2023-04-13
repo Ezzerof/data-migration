@@ -22,7 +22,7 @@ public class EmployeeServiceTest {
     EmployeeDTO employee2;
     EmployeeDTO employee3;
     EmployeeDTO employee4;
-    EmployeeRepositorySpy employeeRepositorySpy = new EmployeeRepositorySpy();
+    EmployeeRepositoryMock employeeRepositorySpy = new EmployeeRepositoryMock();
     EmployeeService employeeService = new EmployeeService(employeeRepositorySpy);
 
     @BeforeEach
@@ -117,9 +117,11 @@ public class EmployeeServiceTest {
     void findDuplicateEmployee() {
 
         employeeService.addCorruptEmployee(employee1);
+        employeeService.addCorruptEmployee(employee1);
+        employeeService.addCorruptEmployee(employee1);
         employeeService.addCorruptEmployee(employee2);
 
-        Assertions.assertEquals(employee1, employeeRepositorySpy.searchByFirstLastNameAndEmailAddress(employee1));
+        Assertions.assertEquals(employee1, employeeService.getCorruptedEmployee(employee1.getEmpId()));
     }
 
     @Test

@@ -3,7 +3,6 @@ package com.dataMigration.userInterface;
 import com.dataMigration.database.EmployeeDAO;
 import com.dataMigration.employeePackage.EmployeeDTO;
 import com.dataMigration.employeePackage.EmployeeService;
-import com.dataMigration.employeePackage.EmploymentRepositoryImplementation;
 import com.dataMigration.employeePackage.ValidationsUtil;
 
 import java.util.Scanner;
@@ -67,7 +66,7 @@ public class UserInterfacesStarter {
                                         break;
                                     } else {
                                         employeeDAO.deleteById(emp.getEmpId());
-                                        System.out.printf("Employee: %d %s %s was successfully deleted\n", emp.getEmpId(), emp.getFirstName(), emp.getLastName());
+                                        System.out.println("Employee was successfully deleted\n");
                                         break;
                                     }
                                 }

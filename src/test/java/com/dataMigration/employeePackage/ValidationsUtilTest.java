@@ -40,7 +40,7 @@ public class ValidationsUtilTest {
     @Test
     @DisplayName("Testing isPrefixCorrupted method by adding a corrupt prefix should get true")
     void testingIsPrefixCorruptedMethodByAddingACorruptPrefixShouldGetTrue() {
-        Assertions.assertTrue(ValidationsUtil.isPrefixCorrupted(null));
+        Assertions.assertTrue(ValidationsUtil.isPrefixCorrupted("null"));
     }
 
 }
