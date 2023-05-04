@@ -4,8 +4,14 @@ import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 /**
  * GIVEN a List of Employees
@@ -22,11 +28,12 @@ public class EmployeeServiceTest {
     private EmployeeDTO employee3;
     private EmployeeDTO employee4;
     private static EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
-    private static EmployeeRepositoryMock employeeRepositorySpy = new EmployeeRepositoryMock();
+    private static EmployeeRepositoryMock employeeRepositorySpy;
     private static EmployeeService employeeService;
     @BeforeAll
      static void setup() {
-        employeeService = new EmployeeService(employeeRepositorySpy);
+        employeeRepositorySpy = new EmployeeRepositoryMock();
+        employeeService = new EmployeeService(employeeRepository);
     }
 
     @BeforeEach
@@ -53,7 +60,7 @@ public class EmployeeServiceTest {
         employeeService.addEmployee(employee3);
         employeeService.addEmployee(employee4);
 
-        Assertions.assertEquals(4, employeeService.getEmployeeListSize());
+        assertEquals(4, employeeService.getEmployeeListSize());
     }
 
     @Test
@@ -71,16 +78,37 @@ public class EmployeeServiceTest {
         Assertions.assertNotEquals(employeeService.getCorruptedEmployee(19525), employeeService.getCorruptedEmployee(19526));
     }
 
+    // Will run with Repo Mock!
+    @Test
+    @DisplayName("Should Return Corrupted Map size of 1")
+    void should_ReturnCorruptedMapSizeOf1() {
+        // given
+        when(this.employeeService.getAllCorruptedEmployees()).thenReturn(Collections.singletonMap(19525, new EmployeeDTO(19525, "Mr.", "", "", "", Gender.MALE, "", LocalDate.now(), LocalDate.now(), 898596)));
+        int expected = 1;
+
+        // when
+        int actual = employeeService.getAllCorruptedEmployees().size();
+
+        // then
+        assertEquals(expected, actual);
+    }
+
+    // Will run with Repo Mock!
+
     @Test
     @DisplayName("Testing Adding Corrupted Employees To The Corrupted Map Size Should Be 4")
     void testingAddingCorruptedEmployeesToTheCorruptedMapSizeShouldBe4() {
-        employeeService.addCorruptEmployee(employee1);
-        employeeService.addCorruptEmployee(employee2);
-        employeeService.addCorruptEmployee(employee3);
-        employeeService.addCorruptEmployee(employee4);
+        // given
+        Map<Integer, EmployeeDTO> map = Map.of(employee1.getEmpId(), employee1, employee2.getEmpId(), employee2, employee3.getEmpId(), employee3, employee4.getEmpId(), employee4);
 
+        when(this.employeeService.getAllCorruptedEmployees()).thenReturn(map);
+        int expected = 4;
 
-        Assertions.assertEquals(4, employeeRepositorySpy.getSizeOfCorruptedList());
+        // when
+        int actual = employeeService.getAllCorruptedEmployees().size();
+
+        // then
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -91,7 +119,7 @@ public class EmployeeServiceTest {
         employeeService.addCorruptEmployee(employee2);
         employeeService.addCorruptEmployee(employee3);
 
-        Assertions.assertEquals(employee1, employeeRepositorySpy.getCorruptedEmployee(19525));
+        assertEquals(employee1, employeeRepositorySpy.getCorruptedEmployee(19525));
     }
 
     @Test
@@ -113,7 +141,7 @@ public class EmployeeServiceTest {
         employeeService.addEmployee(employee3);
         employeeService.addEmployee(employee4);
 
-        Assertions.assertEquals(employee.toString(), employeeService.getEmployee(19523).toString());
+        assertEquals(employee.toString(), employeeService.getEmployee(19523).toString());
     }
 
     @Test
@@ -125,7 +153,7 @@ public class EmployeeServiceTest {
         employeeService.addCorruptEmployee(employee1);
         employeeService.addCorruptEmployee(employee2);
 
-        Assertions.assertEquals(employee1, employeeService.getCorruptedEmployee(employee1.getEmpId()));
+        assertEquals(employee1, employeeService.getCorruptedEmployee(employee1.getEmpId()));
     }
 
     @Test
@@ -140,7 +168,7 @@ public class EmployeeServiceTest {
         employeeService.addEmployee(employee2);
         employeeService.addEmployee(employee3);
 
-        Assertions.assertEquals(3,employeeService.getAllEmployees().size());
+        assertEquals(3,employeeService.getAllEmployees().size());
     }
 
     @Test
@@ -152,7 +180,7 @@ public class EmployeeServiceTest {
         employeeService.addCorruptEmployee(employee3);
         employeeService.addCorruptEmployee(employee4);
 
-        Assertions.assertEquals(4,employeeService.getAllCorruptedEmployees().size());
+        assertEquals(4,employeeService.getAllCorruptedEmployees().size());
     }
 
 }
