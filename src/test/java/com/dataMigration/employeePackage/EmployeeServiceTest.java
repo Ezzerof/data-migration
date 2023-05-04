@@ -1,12 +1,11 @@
 package com.dataMigration.employeePackage;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import static org.mockito.Mockito.mock;
 
 /**
  * GIVEN a List of Employees
@@ -18,12 +17,17 @@ import java.time.format.DateTimeFormatter;
 
 public class EmployeeServiceTest {
 
-    EmployeeDTO employee1;
-    EmployeeDTO employee2;
-    EmployeeDTO employee3;
-    EmployeeDTO employee4;
-    EmployeeRepositoryMock employeeRepositorySpy = new EmployeeRepositoryMock();
-    EmployeeService employeeService = new EmployeeService(employeeRepositorySpy);
+    private EmployeeDTO employee1;
+    private EmployeeDTO employee2;
+    private EmployeeDTO employee3;
+    private EmployeeDTO employee4;
+    private static EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
+    private static EmployeeRepositoryMock employeeRepositorySpy = new EmployeeRepositoryMock();
+    private static EmployeeService employeeService;
+    @BeforeAll
+     static void setup() {
+        employeeService = new EmployeeService(employeeRepositorySpy);
+    }
 
     @BeforeEach
     @DisplayName("Creating objects")

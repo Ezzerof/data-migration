@@ -33,7 +33,12 @@ public class EmployeeDTO {
     }
 
     public void setEmpId(int empId) {
-        this.empId = empId;
+        if  (ValidationsUtil.isIntCorrupted(empId)) {
+            this.empId = empId;
+        }
+        else {
+            this.empId = 0;
+        }
     }
 
     public String getPrefixName() {

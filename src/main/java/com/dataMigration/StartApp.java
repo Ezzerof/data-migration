@@ -34,7 +34,6 @@ public class StartApp {
                 } else if (numberOfEmployees == 0 || numberOfEmployees > 10000) {
                     System.out.println("Invalid input\n");
                 } else {
-
                     listOfEmps = EmployeeReader.getEmployees(numberOfEmployees);
 
                     // Adding Employees to Maps
@@ -50,7 +49,6 @@ public class StartApp {
 
                     employeeDAO.dropTableIfExists();
                     employeeDAO.createTable();
-
 
                     System.out.println("Inserting employees to the Database ...");
 

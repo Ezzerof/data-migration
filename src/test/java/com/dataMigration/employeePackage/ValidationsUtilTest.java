@@ -1,15 +1,21 @@
 package com.dataMigration.employeePackage;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 public class ValidationsUtilTest {
+    private static EmployeeDTO invalidEmp;
+    private static EmployeeDTO validEmp;
+    @BeforeAll
+    static void setup() {
+        invalidEmp = new EmployeeDTO(19525, null, null, null, "Dan", Gender.MALE, "aa@gmail.c", LocalDate.now(), LocalDate.now(), 898596);
+        validEmp = new EmployeeDTO(19525, "Mr.", "Dan", "M", "Flower", Gender.MALE, "aa@gmail.c", LocalDate.now(), LocalDate.now(), 898596);
 
-    EmployeeDTO invalidEmp = new EmployeeDTO(19525, null, null, null, "Dan", Gender.MALE, "aa@gmail.c", LocalDate.now(), LocalDate.now(), 898596);
-    EmployeeDTO validEmp = new EmployeeDTO(19525, "Mr.", "Dan", "M", "Flower", Gender.MALE, "aa@gmail.c", LocalDate.now(), LocalDate.now(), 898596);
+    }
 
     @Test
     @DisplayName("Testing isCorrupted method by adding an Employee with invalid details should get true")

@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 
 public class ValidationsUtil {
 
+
     static boolean isEmailValid(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
@@ -15,15 +16,18 @@ public class ValidationsUtil {
 
     public static int isIntCorrupted(String text) {
         String regex = ".*[a-zA-Z!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";
-        int salary = 0;
+
         if (!text.matches(regex)) {
-            salary = Integer.parseInt(text);
-        } else
-            return 0;
-        if (salary <= 0)
-            return 0;
+            return Integer.parseInt(text);
+        }
 
         return 0;
+    }
+
+    public static boolean isIntCorrupted(int text) {
+        String regex = ".*[a-zA-Z!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";
+
+        return text <= 0;
     }
 
     public static boolean isStringCorrupted(String input) {

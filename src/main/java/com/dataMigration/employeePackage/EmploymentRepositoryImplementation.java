@@ -77,7 +77,6 @@ public class EmploymentRepositoryImplementation implements EmployeeRepository {
     public EmployeeDTO getEmployee(int empId) {
         return employeesList.get(empId);
     }
-
     @Override
     public EmployeeDTO getCorruptedEmployee(int emId) {
         return corruptedList.get(emId);
