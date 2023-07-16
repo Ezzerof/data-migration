@@ -1,4 +1,4 @@
-# DataMigration
+# Data Migration app
 
 ## Project description
 This project was created in Java using JUnit, Log4J, JDBC and MySQL to read data from a .csv file, parse it, populate objects and add to a collection. The project is designed to demonstrate good programming practices in OOP, SOLID, design patterns, testing, logging, and efficient data handling.
